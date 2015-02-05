@@ -1,0 +1,42 @@
+table {
+    border-collapse: collapse;
+    margin: ($base-spacing / 2) 0;
+    max-width: 100%;
+    width: 100%;
+
+    &-fixed {
+        table-layout: fixed;
+    }
+}
+
+th {
+    border-bottom: 1px solid darken($base-border-color, 15);
+    font-weight: $font-bold;
+    padding: ($base-spacing / 2) ($gutter/2);
+    text-align: left;
+}
+
+td {
+    border-bottom: $base-border;
+    padding: ($base-spacing / 2) ($gutter/2);
+
+    a {
+        font-weight: $font-bold;
+    }
+}
+
+tr,
+td,
+th {
+    vertical-align: middle;
+}
+
+@include media($small-screen-up) {
+
+    th,
+    td {
+        font-size: 14px;
+        font-size: rem(13.5);
+    }
+
+}

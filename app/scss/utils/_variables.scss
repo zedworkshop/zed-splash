@@ -1,0 +1,70 @@
+// Typography
+$sans-serif: "futura-pt", $helvetica;
+$serif: "adobe-text-pro", $georgia;
+$base-font-family: $sans-serif;
+$header-font-family: $sans-serif;
+
+// Font Sizes
+$base-font-size: 16px;
+$h1-font-size: $base-font-size * 2.15;
+$h2-font-size: $base-font-size * 2.2;
+$h3-font-size: $base-font-size * 1.6;
+$h4-font-size: $base-font-size * 1.35;
+$h5-font-size: $base-font-size * 1.2;
+$h6-font-size: $base-font-size;
+
+// Line height
+$base-line-height: 1.3;
+$header-line-height: 1.1;
+
+// Other Sizes
+$base-border-radius: 2px;
+$base-spacing: $base-line-height * 1em;
+$base-z-index: 0;
+
+// Background Color
+$base-background-color: #fff;
+
+// Font Colors
+$base-font-color: $grey-dark;
+$base-accent-color: $brand-primary;
+
+// Link Colors
+$base-link-color: $base-accent-color;
+$hover-link-color: darken($base-accent-color, 15);
+$base-button-color: $brand-primary; // $base-link-color;
+$hover-button-color: darken($brand-primary, 5); // $hover-link-color;
+
+// Flash Colors
+$alert-color: $light-yellow;
+$error-color: $light-red;
+$notice-color: lighten($base-accent-color, 50);
+$success-color: $light-green;
+
+// Border color
+$base-border-color: $grey-lighter;
+$base-border: 1px solid $base-border-color;
+
+// Forms
+$form-border-color: $base-border-color;
+$form-border-color-hover: darken($base-border-color, 10);
+$form-border-color-focus: $base-accent-color;
+$form-border-radius: $base-border-radius;
+$form-box-shadow: inset 0 1px 3px rgba(black,0.06);
+$form-box-shadow-focus: $form-box-shadow, 0 0 5px rgba(darken($form-border-color-focus, 5), 0.7);
+$form-font-size: $base-font-size * 1.15;
+$form-font-family: $base-font-family;
+
+// Transitions
+$transition-quick: 150ms;
+$transition-fast: 250ms;
+
+// Font-weights
+$font-thin: 100;
+$font-light: 300;
+$font-normal: 400;
+$font-semi: 600;
+$font-bold: 700;
+$font-xbold: 800;
+
+

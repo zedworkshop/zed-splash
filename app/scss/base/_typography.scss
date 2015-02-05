@@ -1,0 +1,296 @@
+body {
+    -webkit-font-smoothing: antialiased;
+    color: $base-font-color;
+    font-family: $base-font-family;
+    font-weight: $font-normal;
+    font-size: $base-font-size;
+    line-height: $base-line-height;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.h1,
+.h2,
+.h3,
+.h4,
+.h5,
+.h6 {
+    color: $grey-dark;
+    font-family: $header-font-family;
+    line-height: $header-line-height;
+    margin: 0;
+    margin-bottom: 1em;
+    text-rendering: optimizeLegibility; // Fix the character spacing for headings
+    max-width: 35em;
+    max-width: 35rem;
+
+    small {
+        display: block;
+        font-weight: $font-normal;
+        line-height: 1.4;
+    }
+
+    &.mb0 {
+        margin-bottom: .2em;
+    }
+}
+
+h1,
+.h1 {
+    color: $brand-alt;
+    @include font-size($h1-font-size);
+}
+
+h2,
+.h2 {
+    @include font-size($h2-font-size);
+    font-weight: $font-bold;
+    line-height: 1.2;
+    text-rendering: optimizeLegibility;
+    margin-bottom: 0.5em;
+}
+
+h3,
+.h3 {
+    @include font-size($h3-font-size);
+    font-weight: $font-bold;
+}
+
+h4,
+.h4 {
+    @include font-size($h4-font-size);
+    font-weight: $font-normal;
+}
+
+h5,
+.h5 {
+    color: $grey-mid;
+    @include font-size($h5-font-size);
+    margin-bottom: 3em;
+}
+
+h6,
+.h6 {
+    @include font-size($h6-font-size);
+    font-weight: $font-bold;
+    // margin: 0 0 ($base-spacing / 2);
+    margin-top: 0;
+    margin-bottom: .2em;
+
+    &.caps {
+        text-transform: uppercase;
+        @include font-size(12);
+        letter-spacing: 0.05em;
+    }
+}
+
+p {
+    margin: 0 0 $base-spacing;
+    max-width: 35em;
+    max-width: 35rem;
+}
+
+a {
+    @include transition(color 100ms linear);
+    color: $base-link-color;
+    text-decoration: none;
+
+    &:hover {
+        color: #222;
+    }
+
+    &:active,
+    &:focus {
+        color: $hover-link-color;
+        outline: none;
+    }
+
+    &.muted {
+        color: $grey-light;
+
+        &:hover {
+            color: $hover-link-color;
+        }
+
+        &:active,
+        &:focus {
+            color: $hover-link-color;
+            outline: none;
+        }
+    }
+
+    &.reverse {
+        color: $hover-link-color;
+
+        &:hover {
+            color: $base-link-color;
+        }
+
+        &:active,
+        &:focus {
+            color: $base-link-color;
+            outline: none;
+        }
+    }
+
+    &.action {
+        border-bottom: 1px solid tint($base-link-color, 70);
+        font-weight: $font-bold;
+
+        &:hover {
+            border-bottom-color: tint($base-link-color, 30);
+        }
+    }
+
+    &.destroy {
+        color: $grey-light;
+
+        &:hover {
+            color: $red;
+        }
+
+        &:active,
+        &:focus {
+            color: $red;
+            outline: none;
+        }
+    }
+}
+
+hr {
+    border-bottom: $base-border;
+    border-left: none;
+    border-right: none;
+    border-top: none;
+    margin: $base-spacing 0;
+}
+
+figure {
+    margin: 0;
+}
+
+img,
+picture,
+video {
+    margin: 0;
+    max-width: 100%;
+}
+
+blockquote {
+    border-left: 2px solid $base-border-color;
+    color: lighten($base-font-color, 15);
+    margin: $base-spacing 0;
+    padding-left: $base-spacing / 2;
+}
+
+cite {
+    color: lighten($base-font-color, 25);
+    font-style: italic;
+    &:before {
+        content: "\2014 \00A0";
+    }
+}
+
+@include media($small-screen-up) {
+
+    p {
+        @include font-size($base-font-size * 1.2);
+    }
+
+}
+
+/*
+    Fonts
+------------------------------------------------*/
+
+%font-light {
+    font-weight: $font-light;
+}
+
+.font-light {
+    @extend %font-light;
+}
+
+%font-normal {
+    font-weight: $font-normal;
+}
+
+.font-normal {
+    @extend %font-normal;
+}
+
+%font-bold {
+    font-weight: $font-bold;
+}
+
+.font-bold {
+    @extend %font-bold;
+}
+
+/*
+    Sizes
+------------------------------------------------*/
+
+.xsmall {
+    @include font-size(12);
+}
+
+%small {
+    @include font-size(13);
+}
+
+small,
+.small {
+    @extend %small;
+}
+
+.large {
+    @include font-size(18);
+}
+
+.huge {
+    @include font-size(32);
+}
+
+
+
+/*
+    Text
+------------------------------------------------*/
+
+.text-white {
+    color: #fff;
+}
+
+%text-muted {
+    color: lighten($grey-mid, 10);
+}
+
+.text-muted {
+    @extend %text-muted;
+}
+
+.text-mid {
+    color: lighten($grey, 5);
+}
+
+.text-alert {
+    color: $yellow;
+}
+
+.text-danger,
+.text-error {
+    color: $red;
+}
+
+.text-primary {
+    color: $brand-primary;
+}
+
+.text-alt {
+    color: $brand-alt;
+}

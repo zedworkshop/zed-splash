@@ -1,0 +1,157 @@
+.btn {
+	@extend %button;
+	@include appearance(none);
+	border: none;
+	cursor: pointer;
+	user-select: none;
+	vertical-align: middle;
+	white-space: nowrap;
+	transition: background $transition-quick,
+	border $transition-quick,
+	box-shadow $transition-quick,
+	color $transition-quick;
+
+	text-align: center;
+	text-transform: uppercase;
+	letter-spacing: 1px;
+	font-size: 12px;
+	font-size: rem(11.5);
+
+	background-color: $base-button-color;
+	// box-shadow: darken($base-button-color, 15) 0 1px 0;
+
+	&:hover {
+		background-color: $hover-button-color;
+	}
+
+	&:focus {
+		outline: none;
+	}
+
+	&:active {
+		box-shadow: inset rgba(#000,.5) 0 2px 2px;
+	}
+
+	// Full-width
+	&-full {
+		display: block;
+		width: 100%;
+	}
+
+	// Default
+	&-default {
+		background-color: $grey-lightest;
+		// box-shadow: darken($grey-lightest, 10) 0 1px 0;
+		color: $grey-dark;
+
+		&:hover {
+			background-color: darken($grey-lightest, 5);
+			color: $grey-dark;
+		}
+	}
+
+	// Action button
+	&-action {
+		background-color: $orange;
+		// box-shadow: darken($orange, 15) 0 1px 0;
+
+		&:hover {
+			background-color: darken($orange, 5);
+		}
+	}
+
+	// Danger
+	&-alert {
+		background-color: $yellow;
+		box-shadow: none;
+
+		&:hover {
+			background-color: darken($yellow, 5);
+		}
+	}
+
+	// Danger
+	&-danger {
+		background-color: $red;
+		box-shadow: none;
+
+		&:hover {
+			background-color: darken($red, 5);
+		}
+	}
+
+	// Dark
+	&-dark {
+		background-color: $grey-dark;
+		box-shadow: none;
+		// box-shadow: darken($grey-dark, 10) 0 1px 0;
+
+		&:hover {
+			background-color: darken($grey-dark, 5);
+		}
+	}
+
+	// Links
+	&-link {
+
+		@include pad($gutter*.6 $gutter*.6);
+		letter-spacing: 0;
+		text-transform: none;
+
+		&,
+		&:link {
+			background-color: transparent;
+			box-shadow: none; // inset tint($blue, 10) 0 0 0 1px;
+			color: $blue;
+		}
+
+		&:hover {
+			background: transparent;
+			color: shade($blue, 50);
+		}
+
+		&:active {
+			background: rgba($blue,.1);
+			box-shadow: none;
+			// box-shadow: inset tint($blue, 15) 0 0 0 1px, inset rgba(#000,.2) 0 2px 1px;
+		}
+	}
+
+	@include media($small-screen-up) {
+
+		font-size: 14px;
+		font-size: rem(13.5);
+		font-weight: $font-bold;
+		@include pad($gutter*.6 $gutter);
+
+		&-link {
+			font-size: 15px;
+			font-size: rem(14.5);
+		}
+
+		// Small
+		&-sm {
+			@include pad($gutter*.55 $gutter*.7);
+			font-size: 13px;
+			font-size: rem(12.5);
+
+			&.btn-link {
+				font-size: 14px;
+				font-size: rem(13.5);
+			}
+		}
+
+		// X-Small
+		&-xs {
+			@include pad($gutter*.4 $gutter*.6);
+			font-size: 12px;
+			font-size: rem(11.5);
+
+			&.btn-link {
+				font-size: 13px;
+				font-size: rem(12.5);
+			}
+		}
+
+	}
+}

@@ -1,0 +1,16 @@
+/*
+	Footer
+------------------------------------------------*/
+
+.sitefooter {
+	margin-top: 3em;
+
+	p {
+		@include font-size(14);
+		margin-bottom: 0.2em;
+	}
+
+	@include media($small-screen-up) {
+		margin-top: 12em;
+	}
+}

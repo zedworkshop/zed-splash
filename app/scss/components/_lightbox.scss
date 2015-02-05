@@ -1,0 +1,149 @@
+/*
+	Lightbox
+------------------------------------------------*/
+
+$lightbox-header-height: 60px;
+$lightbox-content-width: 350px;
+
+// body.lightbox-active {
+// 	overflow: hidden;
+// }
+
+.lightbox {
+	background: rgba(#000,.9);
+	height: 100%;
+	width: 100%;
+
+	display: flex;
+	flex-direction: column;
+
+	position: fixed;
+	top: 0;
+	left: 0;
+	z-index: 10;
+
+	// opacity: 0;
+	// visibility: hidden;
+
+	// transition-property: opacity, visibility;
+	// transition-duration: $transition-fast;
+
+	// .lightbox-active & {
+	// 	opacity: 1;
+	// 	visibility: visible;
+	// }
+}
+
+.lightbox-header {
+	height: $lightbox-header-height;
+}
+
+.lightbox-inner {
+	flex: 1;
+	display: flex;
+	flex-direction: column;
+}
+
+.lightbox-stage {
+	min-height: 150px;
+	max-height: 320px;
+	text-align: center;
+	vertical-align: middle;
+	white-space: nowrap;
+
+	.lightbox-media {
+		max-height: 320px;
+
+		img {
+			max-height: 320px;
+		}
+	}
+
+	.lightbox-video {
+		display: flex;
+		flex-direction: row;
+		width: 100%;
+		justify-content: center;
+		align-items: center;
+
+		video {
+			margin: auto;
+		}
+	}
+}
+
+.lightbox-content {
+	flex: 1;
+	overflow-y: auto;
+}
+
+@include media($small-screen-up) {
+
+	.lightbox-inner {
+		flex-direction: row;
+		max-height: 95%;
+		max-height: calc(100% - #{$lightbox-header-height});
+	}
+
+	.lightbox-stage {
+		@include span-columns(8);
+		width: calc(100% - #{$lightbox-content-width});
+		float: none;
+
+		min-height: 0;
+		max-height: none;
+		margin-right: 0;
+		text-align: center;
+
+		display: table-cell;
+		vertical-align: middle;
+		position: relative;
+
+		// flex: 1;
+
+		flex: 1;
+		display: flex;
+
+		.lightbox-media {
+			max-height: none;
+			padding: 1em;
+
+			position: absolute;
+			height: 100%;
+			width: 100%;
+
+			.lightbox-shim {
+				display: inline-block;
+				vertical-align: middle;
+				height: 100%;
+				width: 0;
+				background: black;
+				margin-right: -4px;
+			}
+
+			img {
+				display: inline-block;
+				vertical-align: middle;
+				max-height: 100%;
+				max-width: 100%;
+				height: auto;
+				width: auto;
+			}
+
+		}
+
+		.lightbox-video {
+			padding: 1em;
+		}
+	}
+
+	.lightbox-content {
+		@include span-columns(4);
+		width: calc(#{$lightbox-content-width});
+		flex: none;
+
+		display: table-cell;
+	}
+
+}
+

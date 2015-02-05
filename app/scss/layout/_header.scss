@@ -1,0 +1,43 @@
+/*
+	Header
+------------------------------------------------*/
+
+$siteheader-bg: #fff;
+$siteheader-height: 60px;
+$logo-height: $siteheader-height / 2;
+$navlink-border-width: 4px;
+
+.siteheader {
+	background: $brand-primary;
+	width: 150px;
+	height: 150px;
+
+	padding: 2em;
+
+	display: flex;
+	justify-content: center;
+	align-items: center;
+
+	.logo {
+		margin: 0;
+
+		svg {
+			height: auto;
+			width: 100%;
+		}
+
+		.st0,
+		.st1,
+		.st2,
+		.st3 {
+			fill: #fff;
+		}
+	}
+
+	@include media($small-screen-up) {
+		float: left;
+		width: 200px;
+		height: 200px;
+	}
+
+}

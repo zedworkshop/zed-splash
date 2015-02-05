@@ -1,0 +1,356 @@
+fieldset {
+    background: lighten($base-border-color, 10);
+    border: $base-border;
+    margin: 0 0 ($base-spacing / 2) 0;
+    padding: $base-spacing;
+}
+
+input,
+label,
+select {
+    display: block;
+    font-family: $form-font-family;
+    @include font-size($form-font-size);
+    font-weight: $font-normal;
+}
+
+input[type="search"] {
+    @include appearance(none);
+}
+
+input[type="file"] {
+    padding-bottom: $base-spacing / 2;
+    width: 100%;
+}
+
+label {
+    font-weight: $font-bold;
+    margin-bottom: $base-spacing / 4;
+
+    &.required:after,
+    .required &:after {
+        color: red;
+        content: "*";
+        float: left;
+        margin-left: -.6em;
+        margin-top: 0;
+        font-size: 20px;
+        width: .6em;
+    }
+
+    &.inline {
+        display: inline-block;
+        vertical-align: middle;
+        float: none;
+        margin-top: 0;
+        margin-bottom: 0;
+        margin-right: $gutter / 2;
+        width: auto;
+    }
+
+    abbr {
+        display: none;
+    }
+}
+
+.form-control {
+    @include box-sizing(border-box);
+    background-color: white;
+    border-radius: $form-border-radius;
+    border: 1px solid $form-border-color;
+    box-shadow: $form-box-shadow;
+    font-family: $form-font-family;
+    margin-bottom: $base-spacing / 4;
+    padding: ($base-spacing / 3) ($base-spacing / 3);
+    width: 100%;
+
+    transition-property: background, border, box-shadow, color;
+    transition-duration: $transition-quick;
+
+    &:hover {
+        border-color: $form-border-color-hover;
+    }
+
+    &:focus {
+        border-color: $form-border-color-focus;
+        box-shadow: $form-box-shadow-focus;
+        outline: none;
+    }
+
+    // Small
+    &.input-xs,
+    &.input-sm {
+        @include font-size($base-font-size);
+    }
+
+    &.input-fullwidth {
+        width: 100%;
+    }
+
+    // Flat-style
+    &.input-flat {
+        background-color: $grey-subtle;
+        border-color: $grey-subtle;
+        box-shadow: none;
+
+        &:focus {
+            background-color: #fff;
+            border-color: $form-border-color-focus;
+        }
+    }
+
+    // Blank
+    &.input-blank {
+        background-color: #fff;
+        border-color: #fff;
+        box-shadow: none;
+        font-size: inherit;
+        font-weight: inherit;
+        line-height: 1.2;
+
+        h2 & {
+        }
+
+        @include placeholder {
+            color: $grey-light;
+        }
+
+        &:hover {
+            background: tint(yellow, 80);
+
+            // border-color:
+            @include placeholder {
+                color: shade(yellow, 15);
+            }
+        }
+
+        &:focus {
+            background-color: #fff;
+            // border-color: $grey-lighter;
+            border-color: $form-border-color-focus;
+            box-shadow: rgba(#000,.15) 0 2px 4px;
+
+            @include placeholder {
+                color: $grey-lighter;
+            }
+        }
+    }
+
+    // Errored
+    .has-error & {
+        border-color: $red;
+
+        &:focus {
+            box-shadow: none;
+        }
+    }
+
+    @include media($small-screen-up) {
+
+        &.input-xs {
+            @include font-size($base-font-size * 0.95);
+            padding: ($base-spacing / 5) ($base-spacing / 3);
+        }
+
+        &.input-xl {
+            @include font-size($h2-font-size);
+            padding: ($base-spacing / 6) ($base-spacing / 4);
+        }
+
+    }
+}
+
+// Numbers
+input[type=number] {
+    width: auto;
+
+    // &::-webkit-inner-spin-button {
+    //     display: none;
+    // }
+
+    // &::-moz-inner-spin-button {
+    //     display: none;
+    // }
+}
+
+// Selects
+select.form-control {
+    height: 37px;
+    max-width: 100%;
+    width: auto;
+}
+
+textarea.form-control {
+    resize: vertical;
+}
+
+// Radios + Checkboxes
+$radio-padding: $gutter;
+
+.radio,
+.checkbox {
+    position: relative;
+    display: block;
+    margin-top: 10px;
+    margin-bottom: 10px;
+
+    label {
+        min-height: 20px;
+        padding-left: $radio-padding;
+        margin-bottom: 0;
+        font-weight: $font-normal;
+        cursor: pointer;
+    }
+}
+
+.radio input[type="radio"],
+.radio-inline input[type="radio"],
+.checkbox input[type="checkbox"],
+.checkbox-inline input[type="checkbox"] {
+    position: absolute;
+    margin-top: 4px;
+    margin-left: -$radio-padding;
+}
+
+.radio + .radio,
+.checkbox + .checkbox {
+    margin-top: -5px;
+}
+
+.radio-inline,
+.checkbox-inline {
+    display: inline-block;
+    padding-left: $radio-padding;
+    margin-bottom: 0;
+    font-weight: $font-normal;
+    vertical-align: middle;
+    cursor: pointer;
+}
+
+.radio-inline + .radio-inline,
+.checkbox-inline + .checkbox-inline {
+    margin-top: 0;
+    margin-left: 10px;
+}
+
+input[type="radio"][disabled],
+input[type="checkbox"][disabled],
+input[type="radio"].disabled,
+input[type="checkbox"].disabled,
+fieldset[disabled] input[type="radio"],
+fieldset[disabled] input[type="checkbox"] {
+    cursor: not-allowed;
+}
+
+.radio-inline.disabled,
+.checkbox-inline.disabled,
+fieldset[disabled] .radio-inline,
+fieldset[disabled] .checkbox-inline {
+    cursor: not-allowed;
+}
+
+.radio.disabled label,
+.checkbox.disabled label,
+fieldset[disabled] .radio label,
+fieldset[disabled] .checkbox label {
+    cursor: not-allowed;
+}
+
+/* Contenteditable
+// --------------------------------------------------*/
+
+.editable {
+    display: inline-block;
+    font-weight: inherit;
+    line-height: 1;
+    width: auto;
+}
+
+
+/* Form Groups // --------------------------------------------------*/
+
+.form-group {
+    margin-bottom: $base-spacing;
+
+    &:last-child {
+        margin-bottom: $base-spacing/2;
+    }
+}
+
+.form-inline {
+    display: block;
+
+    .form-group,
+    .form-control {
+        display: inline-block;
+        margin-bottom: 0;
+        vertical-align: middle;
+        width: auto;
+    }
+
+    .form-group {
+        margin-right: $gutter / 2;
+    }
+
+    .input-fullwidth {
+        width: 100%;
+    }
+
+    > label {
+        display: inline-block;
+        vertical-align: middle;
+        float: none;
+        margin-top: 0;
+        margin-bottom: 0;
+        margin-right: $gutter / 2;
+        width: auto;
+    }
+}
+
+.form-action {
+    padding-top: $gutter;
+}
+
+/* Messages + Errors // --------------------------------------------------*/
+
+.msg {
+    font-style: italic;
+    font-family: $serif;
+}
+
+.error {
+    color: darken($error-color, 50);
+}
+
+.notice {
+    background-color: $notice-color;
+}
+
+.help-block,
+.error-block {
+    display: block;
+    @include font-size(14);
+}
+
+.error-block {
+
+    .has-error & {
+        color: $red;
+        font-weight: $font-bold;
+    }
+}
+
+.tip-block {
+    display: inline-block;
+    @include font-size(13);
+
+    .has-error & {
+        color: $red;
+        font-weight: $font-bold;
+    }
+}
+
+
+
+
+

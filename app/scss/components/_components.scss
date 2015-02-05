@@ -1,0 +1,130 @@
+/*
+	Pills
+	-- $bright-greenTags, with rounded ends
+--------------------------------------------------*/
+
+.pill {
+	background: $grey;
+	border-radius: $base-border-radius * 5;
+	color: #fff;
+	display: inline-block;
+	font-weight: $font-bold;
+	line-height: 1.1;
+	padding: 2px 7px 3px;
+	text-align: center;
+
+	&--sq {
+		height: $base-spacing;
+		line-height: $base-spacing;
+		width: $base-spacing;
+	}
+}
+
+/*
+	Tags
+--------------------------------------------------*/
+
+.tag {
+	background: $grey;
+	border-radius: $base-border-radius;
+	color: #fff;
+	display: inline-block;
+	font-size: 12px;
+	font-size: rem(11.5);
+	font-weight: $font-bold;
+	margin: 0 em(6) em(4) 0;
+	padding: 1px 4px 2px;
+	text-transform: uppercase;
+
+	&-lg {
+		font-size: 14px;
+		font-size: rem(13.5);
+		padding: .2em .4em;
+	}
+}
+
+/*
+	Pebbles
+	- round coloured tags with tooltips
+--------------------------------------------------*/
+
+$pebble-dim: 12px;
+
+.pebble {
+	background: #bbb;
+	display: inline-block;
+	font-size: 10px;
+	overflow: hidden;
+	border-radius: 50%;
+	margin: 0 em(2) em(4) 0;
+	text-indent: -999em;
+	text-shadow: none;
+	color: transparent;
+	height: $pebble-dim;
+	width: $pebble-dim;
+	line-height: $pebble-dim;
+}
+
+/*
+	Circle text
+--------------------------------------------------*/
+
+$circle-text-dim: 130;
+
+.circle-text {
+	border-radius: 50%;
+	border: 1px solid #fff;
+	color: #fff;
+	height: em($circle-text-dim);
+	font-size: 13px;
+	font-size: rem(13);
+	line-height: 1.1;
+	width: em($circle-text-dim);
+	text-align: center;
+
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+
+	strong {
+		color: #fff;
+		display: block;
+		font-size: 40px;
+		font-size: rem(40);
+		font-weight: $font-light;
+		margin-top: em(-4);
+		margin-bottom: em(2);
+	}
+}
+
+/*
+	Ministatus
+	- mini completion scales for badges
+--------------------------------------------------*/
+
+$ministatus-block-dim: 5px;
+
+.ministatus {
+	display: block;
+	line-height: $ministatus-block-dim;
+	margin-top: $ministatus-block-dim;
+	margin-bottom: $ministatus-block-dim;
+
+	&-block {
+		background: lighten($grey-light, 8);
+		display: inline-block;
+		line-height: inherit;
+		margin: 0 -1px;
+		vertical-align: middle;
+		height: $ministatus-block-dim;
+		width: $ministatus-block-dim;
+
+		&.complete {
+			background: $bright-green;
+		}
+	}
+}
+
+
+

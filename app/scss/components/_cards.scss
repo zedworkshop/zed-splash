@@ -1,0 +1,54 @@
+/*
+    Cards
+------------------------------------------------*/
+
+@mixin card-content() {
+	display: table;
+	text-align: left;
+
+	.card-image,
+	.card-content {
+		display: table-cell;
+	}
+
+	.card-image {
+		position: relative;
+		top: .2em;
+	}
+
+	.card-content {
+		line-height: 1.1;
+		overflow: hidden;
+		padding-left: $gutter / 2;
+
+		p {
+			margin-bottom: 0;
+		}
+	}
+
+	&.card--middle {
+
+		.card-image,
+		.card-content {
+			vertical-align: middle;
+			top: 0;
+		}
+	}
+}
+
+.card {
+	@include card-content();
+
+	@include media($small-screen-down) {
+
+		// Only for small screens.
+		&-xs {
+			@include card-content();
+
+			.card-image.avatar {
+				width: 50px;
+				height: 50px;
+			}
+		}
+	}
+}

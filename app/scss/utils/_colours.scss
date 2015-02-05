@@ -1,0 +1,45 @@
+// Colors
+$red: #d54127;
+$light-red: lighten($red, 75);
+
+$blue: darken(#4088b6, 5);
+$dark-blue: #0B3D63;
+$bright-blue: saturate($blue, 50);
+
+$aqua: #00a983;
+$green: mix(darken(#e6efc2, 30), $aqua, 30);
+$light-green: lighten($green, 45);
+$bright-green: lighten(saturate($green, 20), 4);
+
+$light-yellow: #FFF6BF;
+$yellow: darken($light-yellow, 50);
+
+$orange: #FF8000; // saturate(invert($blue), 25);
+$maroon: #993333;
+$purple: #544E66; // saturate(lighten(#544E66, 10), 10);
+$leather: #6a6360;
+
+$grey-subtle: lighten($leather, 57);
+$grey-tint: darken($grey-subtle, 3);
+$grey-lightest: darken($grey-tint, 3);
+$grey-lighter: lighten($leather, 47);
+$grey-light: lighten($leather, 35);
+$grey-mid: lighten($leather, 15);
+$grey: $leather;
+$grey-dark: darken($leather, 15);
+
+$light-gray: $grey-light;
+$medium-gray: $grey;
+$dark-gray: $grey-dark;
+
+
+// Background Color
+$base-background-color: $grey-subtle;
+
+$brand-primary: $red;
+$brand-primary-mid: darken($brand-primary, 10);
+$brand-primary-dark: darken($brand-primary, 25);
+
+$brand-alt: $leather;
+$brand-alt-mid: darken($brand-alt, 10);
+$brand-alt-dark: darken($brand-alt, 25);

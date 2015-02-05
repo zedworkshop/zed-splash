@@ -1,0 +1,47 @@
+/*
+    Tooltips
+    - for jquery.appleton-tooltip.js
+------------------------------------------------*/
+
+$tooltip-bgcolor: $grey-dark;
+
+.tooltip {
+    text-align: center;
+    position: absolute;
+    z-index: 1002;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(5px);
+    transition-property: opacity, transform, visibility;
+    transition-duration: 200ms;
+    transition-timing-function: cubic-bezier(.77, 0, .18, 1);
+    margin-top: -4px;
+
+    &--active {
+        opacity: 1;
+        visibility: visible;
+        transform: translateX(0)
+    }
+
+    &-content {
+        background-color: $tooltip-bgcolor;
+        border-radius: 4px;
+        color: #fff;
+        display: block;
+        font-size: 12px;
+        font-size: rem(12);
+        font-weight: 700;
+        line-height: 1.1;
+        padding: .6em .75em
+    }
+
+    &-point {
+        display: block;
+        margin: 0 auto;
+        height: 0;
+        width: 0;
+        border-left: 5px solid transparent;
+        border-right: 5px solid transparent;
+        border-top: 5px solid $tooltip-bgcolor;
+    }
+}

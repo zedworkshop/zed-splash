@@ -1,0 +1,81 @@
+@import "../vendor/flexboxgrid";
+
+/*
+    flexboxgrid.css enhancements
+------------------------------------------------*/
+
+@mixin col-size($pctg) {
+    flex-basis: $pctg;
+    max-width: $pctg;
+}
+
+.col-xs-fifth {
+    @include col-size(20%);
+}
+
+.omega-xs {
+    text-align: right;
+    align-items: flex-end;
+}
+
+@include media($small-screen-up) {
+	.col-sm-fifth {
+        @include col-size(20%);
+    }
+
+    .col-sm-offset-0 {
+        margin-left: 0;
+    }
+
+    .omega-sm {
+        text-align: right;
+        align-items: flex-end;
+    }
+}
+
+@include media($medium-screen-up) {
+    .col-md-fifth {
+    	@include col-size(20%);
+    }
+
+    .col-md-offset-0 {
+        margin-left: 0;
+    }
+
+    .omega-md {
+        text-align: right;
+        align-items: flex-end;
+    }
+}
+
+@include media($large-screen-up) {
+    .col-lg-fifth {
+    	@include col-size(20%);
+    }
+
+    .col-lg-offset-0 {
+        margin-left: 0;
+    }
+
+    .omega-lg {
+        text-align: right;
+        align-items: flex-end;
+    }
+}
+
+// Pulls
+@include make-grid-pull-push(xs);
+
+@include media($small-screen-up) {
+    @include make-grid-pull-push(sm);
+}
+
+@include media($medium-screen-up) {
+    @include make-grid-pull-push(md);
+}
+
+@include media($large-screen-up) {
+    @include make-grid-pull-push(lg);
+}
+
+

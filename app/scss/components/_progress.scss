@@ -1,0 +1,111 @@
+$progress-bg: $grey-lighter;
+$progress-color: $bright-blue;
+$progress-shadow: inset rgba(#000,.1) 0 1px 1px;
+
+$progress-width: 100%;
+$progress-height: 9px;
+$progress-radius: $base-border-radius * 3;
+
+progress {
+
+	// Indeterminate
+	& :not(value) {
+
+	}
+
+	&[value] {
+		appearance: none;
+		border: none;
+		border-radius: $progress-radius;
+
+		width: $progress-width;
+		height: $progress-height;
+
+		color: $progress-color;
+
+		position: relative;
+
+		&::-webkit-progress-bar {
+			background-color: $progress-bg;
+			border-radius: $progress-radius;
+			box-shadow: $progress-shadow;
+		}
+
+		&::-moz-progress-bar {
+			background-color: $progress-bg;
+			border-radius: $progress-radius;
+			box-shadow: $progress-shadow;
+		}
+
+		&::-webkit-progress-value {
+			background: $progress-color;
+			position: relative;
+			border-radius: $progress-radius;
+
+			&:after {
+				content: '';
+				position: absolute;
+
+				display: block;
+				width: 3px;
+				height: 3px;
+
+				top: 3px;
+				right: 3px;
+
+				background-color: white;
+				border-radius: 100%;
+			}
+
+		}
+
+		&::-moz-progress-value {
+			background: $progress-color;
+			position: relative;
+			border-radius: $progress-radius;
+
+			&:after {
+				content: '';
+				position: absolute;
+
+				width: $progress-height/3;
+				height: $progress-height/3;
+				top: $progress-height/2.5;
+				right: $progress-height/2.5;
+
+				background-color: white;
+				border-radius: 100%;
+			}
+
+		}
+	}
+}
+
+/* Fallback technique styles */
+.progress-bar {
+	background-color: $progress-bg;
+	border-radius: $progress-radius;
+	box-shadow: $progress-shadow;
+	width: $progress-width;
+	height: $progress-height;
+
+	span {
+		background-color: $progress-color;
+		border-radius: $progress-radius;
+
+		display: block;
+		text-indent: -9999px;
+	}
+
+	p[data-value] {
+
+		position: relative;
+	}
+
+	/* The percentage will automatically fall in place as soon as we make the width fluid. Now making widths fluid. */
+
+	p[data-value]:after {
+		content: attr(data-value) '%';
+		position: absolute; right:0;
+	}
+}

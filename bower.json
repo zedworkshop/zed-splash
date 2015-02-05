@@ -1,0 +1,29 @@
+{
+  "name": "zed-boilerplate",
+  "version": "0.1.0",
+  "homepage": "https://github.com/zedworkshop/zed-boilerplate",
+  "authors": [
+    "Adam Campbell <adam@zedworkshop.com>"
+  ],
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "public-src/bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery-ui": "~1.11.2",
+    "jquery": "~2.1.1",
+    "modernizr": "~2.8.3",
+    "flexboxgrid": "~5.0.0",
+    "normalize-scss": "~3.0.2",
+    "backbone": "~1.1.2",
+    "underscore": "~1.7.0",
+    "handlebars": "~2.0.0",
+    "bootstrap-sass-official": "~3.3.2"
+  }
+}

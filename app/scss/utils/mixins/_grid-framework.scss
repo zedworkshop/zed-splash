@@ -1,0 +1,36 @@
+@mixin calc-grid-column($index, $class, $type) {
+	@if ($type == push) and ($index > 0) {
+		.col-#{$class}-push-#{$index} {
+			left: percentage(($index / $grid-columns));
+		}
+	}
+	@if ($type == push) and ($index == 0) {
+		.col-#{$class}-push-0 {
+			left: auto;
+		}
+	}
+	@if ($type == pull) and ($index > 0) {
+		.col-#{$class}-pull-#{$index} {
+			margin-left: -(percentage(($index / $grid-columns)));
+		}
+	}
+	@if ($type == pull) and ($index == 0) {
+		.col-#{$class}-pull-0 {
+			margin-left: 0;
+		}
+	}
+}
+
+// [converter] This is defined recursively in LESS, but Sass supports real loops
+@mixin loop-grid-columns($columns, $class, $type) {
+	@for $i from 0 through $columns {
+		@include calc-grid-column($i, $class, $type);
+	}
+}
+
+
+// Create grid for specific class
+@mixin make-grid-pull-push($class) {
+	@include loop-grid-columns($grid-columns, $class, pull);
+	@include loop-grid-columns($grid-columns, $class, push);
+}

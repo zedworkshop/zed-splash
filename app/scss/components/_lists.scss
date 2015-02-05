@@ -1,0 +1,249 @@
+$list-left-spacing: 32;
+
+ul,
+ol {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+}
+
+ul,
+ol,
+.ul,
+.ol {
+
+    &%default-ul {
+        list-style-type: disc;
+        margin-bottom: $base-spacing / 2;
+        padding-left: em($list-left-spacing);
+        padding-left: rem($list-left-spacing);
+    }
+
+    &%default-ol {
+        list-style-type: decimal;
+        margin-bottom: $base-spacing / 2;
+        padding-left: em($list-left-spacing / 2);
+        padding-left: rem($list-left-spacing / 2);
+    }
+
+    &%increment-list {
+        list-style-type: none;
+
+        .list-counter {
+            padding-left: em($list-left-spacing);
+            padding-left: rem($list-left-spacing);
+            position: relative;
+            // display: table;
+
+            &:before {
+                content: counters(item, ".") ". ";
+                position: absolute;
+                left: 2px;
+                top: 0;
+            }
+        }
+    }
+
+}
+
+ul,
+ol {
+
+
+    li {
+        @include font-size(17);
+
+        a {
+            font-weight: $font-bold;
+        }
+
+        .badge {
+            float: right;
+            font-weight: $font-bold;
+            text-align: right;
+        }
+    }
+
+
+    // Basic list, separated by lines.
+    &.divided {
+
+        li {
+            border-bottom: 1px solid $grey-lighter;
+            color: #444;
+            margin: 0;
+            padding: .75em 1em;
+
+            &:last-child {
+                border-bottom: 0 transparent;
+                margin-bottom: 0;
+            }
+
+            &.highlight {
+                background: lighten($green, 40); // $grey-lightest;
+                // background-color: rgba(#000,.07);
+                border-radius: $base-border-radius;
+                border-color: lighten($green, 40);
+                border-color: rgba(#000,.0);
+                font-weight: $font-bold;
+
+                &,
+                a {
+                    color: darken($green, 15);
+                }
+            }
+        }
+    }
+
+    &.wide {
+
+        li {
+            padding-left: 0;
+            padding-right: 0;
+        }
+    }
+}
+
+dl {
+    margin-bottom: $base-spacing / 2;
+
+    dt {
+        font-weight: bold;
+        margin-top: $base-spacing / 2;
+    }
+
+    dd {
+        margin: 0;
+    }
+}
+
+/*
+    Ordered lists
+*/
+
+ol,
+.ol {
+    counter-reset: item;
+
+    // ol,
+    // ul {
+    //     padding-left: $list-left-spacing;
+    // }
+
+    li,
+    .li {
+        counter-increment: item;
+
+        &.no-counter {
+            &:before {
+                display: none;
+            }
+        }
+    }
+
+    li {
+        line-height: $base-line-height * 1.1;
+        margin-bottom: $base-spacing / 2;
+    }
+
+    &.default {
+        @extend %default-ol;
+    }
+
+    &.decimal {
+        @extend %increment-list;
+
+        ol,
+        .ol {
+            .list-counter {
+                &:before {
+                    content: counters(item, ".") " ";
+                }
+            }
+        }
+    }
+
+    &.lower-alpha {
+        @extend %increment-list;
+        // counter-reset: la a;
+
+        .list-counter {
+            counter-increment: la;
+
+            &:before {
+                content: counter(la, lower-alpha) " " !important;
+            }
+        }
+
+    }
+
+    &.lower-roman {
+        @extend %increment-list;
+        // counter-reset: lr a;
+
+        .list-counter {
+            counter-increment: lr;
+
+            &:before {
+                content: counter(lr, lower-roman) " " !important;
+            }
+
+            // &:before {
+            //     content: counter(section, lower-roman) " " !important;
+            //     min-width: 1px;
+            //     margin-left: -(rem($list-left-spacing * .75));
+            //     margin-right: 0;
+            //     padding-right: 0;
+            //     width: rem($list-left-spacing);
+            //     text-align: right;
+            // }
+        }
+
+    }
+}
+
+/*
+    Unordered lists
+*/
+
+ul {
+
+    &.default {
+        @extend %default-ul;
+
+        li {
+            margin-bottom: $base-spacing / 2;
+        }
+    }
+}
+
+
+@include media($small-screen-up) {
+
+    ul,
+    ol {
+
+
+        li {
+            @include font-size($base-font-size);
+        }
+
+
+        &.divided {
+
+            li {
+                padding: 0.65em 0.75em;
+            }
+
+        }
+
+        &.wide {
+
+            li {
+                padding-left: 0;
+                padding-right: 0;
+            }
+        }
+    }
+
+}

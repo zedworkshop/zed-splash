@@ -1,0 +1,10 @@
+@function calculateRem($size) {
+	$remSize: $size / 16px;
+	@return $remSize * 1rem;
+}
+
+@mixin font-size($size) {
+	$size: strip-units($size) * 1px;
+	font-size: $size;
+	font-size: calculateRem($size - 0.5);
+}
